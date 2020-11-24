@@ -14,9 +14,6 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('UI.ui', self)  # Загружаем дизайн
         self.do_paint = False
-        self.value1 = randint(1, 300)
-        self.value2 = randint(1, 300)
-        self.value3 = randint(1, 300)
         self.pushButton.clicked.connect(self.paint)
 
     def paintEvent(self, event):
@@ -31,15 +28,18 @@ class MyWidget(QMainWindow):
         self.repaint()
 
     def draw_flag(self):
+        value1 = randint(1, 300)
+        value2 = randint(1, 300)
+        value3 = randint(1, 300)
         painter = QPainter(self)
-        painter.setPen(QPen(Qt.yellow, 2, Qt.SolidLine))
-        painter.setBrush(QColor(255, 255, 0))
-        painter.drawEllipse(60, 60, self.value1, self.value1)
-        painter.setBrush(QColor(255, 255, 0))
-        painter.drawEllipse(200, 200, self.value2, self.value2)
-        painter.setBrush(QColor(255, 255, 0))
-        painter.drawEllipse(500, 500, self.value3, self.value3)
-        painter.setBrush(QColor(255, 255, 0))
+        painter.setPen(QPen(Qt.black, 2, Qt.SolidLine))
+        painter.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
+        painter.drawEllipse(60, 60, value1, value1)
+        painter.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
+        painter.drawEllipse(200, 200, value2, value2)
+        painter.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
+        painter.drawEllipse(500, 500, value3, value3)
+        painter.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
 
 
 if __name__ == '__main__':
